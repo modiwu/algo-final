@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.s": "bat",
+        "*.tex": "bibtex",
+        "vector": "cpp"
+    }
+}
