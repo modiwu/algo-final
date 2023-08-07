@@ -62,7 +62,7 @@
 
 **Inductive Step**: 
 
-​	Assume that for some `i`, where $2n+2 \le i \le UPPER\_BOUND$, the `dp` table has been correctly populated.
+​	Assume that for some `i`, where $2n+2 \le i \le UPPER\_ BOUND$, the `dp` table has been correctly populated.
 
 1. **Case 1: i is even**:
    - According to the code, `dp[i] = "1" + dp[i-1]`. Since `dp[i-1]` represents a valid string of length `i-1` (due to the inductive hypothesis), the new string obtained by appending '1' at the beginning will have a length of `i` and still satisfy the problem conditions.
