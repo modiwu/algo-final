@@ -4,9 +4,10 @@
 #include <map>
 using namespace std;
 
-int UPPER_BOUND; 
+int UPPER_BOUND;
+
 // Precompute: primeTable[i] == true: i is prime
-// O(loglog(UPPER_BOUND))
+// O(UPPER_BOUND * loglog(UPPER_BOUND))
 void generate_primeTable( vector<bool> &primeTable ){ 
     primeTable[0] = primeTable[1] = false;
     for(int i = 2; i < UPPER_BOUND; ++i){
@@ -29,7 +30,7 @@ string minstring( string s1, string s2){
 
 // apply dynamic programming to solve the problem
 // return the required string
-// O(UPPER_BOUND) = O(n)
+// O(UPPER_BOUND)
 string shortestAnswerString(int n, vector<bool> &primeTable) {
     map <int, string> dp;
     string ans((UPPER_BOUND - n), '1');
@@ -55,7 +56,7 @@ string shortestAnswerString(int n, vector<bool> &primeTable) {
     for(int i = n + 1; i < UPPER_BOUND; ++i){
         if(primeTable[i]){
             flag = true;
-            // cout << i << ":" << " " << dp[i] << endl;
+            //cout << i << ":" << " " << dp[i] << endl;
             ans = minstring(ans, dp[i]);
         }
     }
@@ -66,9 +67,7 @@ string shortestAnswerString(int n, vector<bool> &primeTable) {
 
 int main(){
     int n;  //input integer
-    cin >> n;
-    // UPPER_BOUND is related to n
-    UPPER_BOUND = 5 * n; 
+    cin >> n >> UPPER_BOUND;
 
     vector<bool> primeTable(UPPER_BOUND + 1, true);
     generate_primeTable(primeTable);
